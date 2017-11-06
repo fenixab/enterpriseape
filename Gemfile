@@ -19,6 +19,7 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'bootstrap-sass', '~> 2.3.1.0'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
