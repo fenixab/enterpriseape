@@ -20,4 +20,4 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-/config/initializers/setup_mail.rb
+#/config/initializers/setup_mail.rb
