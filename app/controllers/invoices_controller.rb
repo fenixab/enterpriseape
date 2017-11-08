@@ -6,6 +6,11 @@ class InvoicesController < ApplicationController
   def index
     @search = InvoiceSearch.new(params[:search])
     @invoices = @search.scope
+
+    require 'sendgrid-ruby'
+include SendGrid
+
+      
   end
 
   # GET /invoices/1
