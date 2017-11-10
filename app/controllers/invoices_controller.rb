@@ -7,8 +7,8 @@ class InvoicesController < ApplicationController
     @search = InvoiceSearch.new(params[:search])
     @invoices = @search.scope
 
-    require 'sendgrid-ruby'
-include SendGrid
+    
+
 
       
   end
