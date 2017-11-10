@@ -21,3 +21,5 @@
 .byebug_history
 
 #/config/initializers/setup_mail.rb
+/config/database.yml
+/config/secrets.yml
