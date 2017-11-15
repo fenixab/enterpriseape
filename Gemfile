@@ -22,10 +22,12 @@ end
 gem 'bootstrap-sass', '~> 2.3.1.0'
 
 gem 'devise'
+gem "passenger"
+
 
 
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+#gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
