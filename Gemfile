@@ -23,6 +23,7 @@ gem 'bootstrap-sass', '~> 2.3.1.0'
 
 gem 'devise'
 gem "passenger"
+gem 'activesupport', '~> 5.0', '>= 5.0.6'
 
 
 
