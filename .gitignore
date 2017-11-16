@@ -20,7 +20,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-config/initializers/setup_mail.rb
+#config/initializers/setup_mail.rb
 #/config/database.yml
 #/config/secrets.yml
 config/database.yml\nconfig/secrets.yml
