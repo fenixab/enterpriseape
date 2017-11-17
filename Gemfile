@@ -17,6 +17,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'puma', '~> 3.0'
 end
 
 gem 'bootstrap-sass', '~> 2.3.1.0'
@@ -30,7 +31,7 @@ gem 'listen', '~> 3.1', '>= 3.1.5'
 
 
 # Use Puma as the app server
-#gem 'puma', '~> 3.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

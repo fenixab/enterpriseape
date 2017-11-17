@@ -4,7 +4,7 @@ ActionMailer::Base.smtp_settings = {
 	:port 				  =>   587,
 	:authentication 	  => 'plain',
 	:user_name			  => 'wificamla@gmail.com',
-	:password			  => '',
+	:password			  => 'TeemoRocks',
 	:enable_starttls_auto => true
 }
 
