@@ -7,7 +7,7 @@ class InvoicesController < ApplicationController
   def index
     @search = InvoiceSearch.new(params[:search])
     @invoices = @search.scope
-
+    
     
 
 
