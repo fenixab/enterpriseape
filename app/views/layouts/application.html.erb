@@ -19,8 +19,11 @@
 				<li><%= link_to "Features", welcome_features_path %></li>
 				<li><%= link_to "FAQs", welcome_faq_path %></li>
 				<li><%= link_to "Pricing", welcome_pricing_path %></li>
-				
-
+				<!-- Verifica se o utilizador é administrador -->
+				<% if current_user.try(:admin?) %>
+						<li><%= link_to "Sign Up", new_user_registration_path %></li>
+				<% end %>
+				<!-- Verifica se o utilizador está logado -->
 				<% if current_user %>
 					<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 					
@@ -38,7 +41,7 @@
 					</div>
 
 				<% else %>
-					<li><%= link_to "Sign Up", new_user_registration_path %></li>
+					
 					<li><%= link_to "Log In", new_user_session_path %></li>
 				<% end %>
 			</ul>
