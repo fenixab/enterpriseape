@@ -6,17 +6,14 @@ class InvoicesController < ApplicationController
   # GET /invoices.json
   def index
     @search = InvoiceSearch.new(params[:search])
-    @invoices = @search.scope
-    
-    
-
-
-      
+    @invoices = @search.scope   
   end
 
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+    @invoice = Invoice.find(params[:id])
+    @purchases = @invoice.purchases
   end
 
   # GET /invoices/new
