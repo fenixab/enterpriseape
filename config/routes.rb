@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :purchases
   resources :employees
+
   resources :companies do 
     collection {post :import}
-    
   end
   
   devise_for :users
@@ -21,7 +20,9 @@ Rails.application.routes.draw do
 
   get 'welcome/features'
 
-  resources :invoices
+  resources :invoices do
+    resources :purchases, except: [:index], controller: 'invoices/purchases'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: 'welcome#index' 
