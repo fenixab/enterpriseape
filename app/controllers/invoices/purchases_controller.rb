@@ -1,6 +1,6 @@
 class Invoices::PurchasesController < ApplicationController
     before_action :set_invoice
-    before_action :set_purchase, except: [:new, :create]
+    
 
   # GET /purchases
   # GET /purchases.json
@@ -58,19 +58,23 @@ class Invoices::PurchasesController < ApplicationController
   # DELETE /purchases/1
   # DELETE /purchases/1.json
   def destroy
-    @purchase.destroy
-    respond_to do |format|
-      format.html { redirect_to purchases_url, notice: 'Purchase was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @invoice = Invoice.find(params[:invoice_id])
+    @purchase = Purchase.find(params[:id])
+    title = @purchase.name
+
+        if @purchase.destroy
+          flash[:notice] = "#{title} was delete successfully."
+          redirect_to @invoice
+
+        else
+          flash[:error] = "Error could not delete purchase."
+          redirect_to :show
+
+        end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_purchase
-      @purchase = Purchase.find(params[:id])
-    end
-
+    # Use callbacks to share common setup or constraints between actions.  
     def set_invoice
       @invoice = Invoice.find(params[:invoice_id])
     end
