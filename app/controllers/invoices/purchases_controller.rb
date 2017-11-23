@@ -44,15 +44,19 @@ class Invoices::PurchasesController < ApplicationController
   # PATCH/PUT /purchases/1
   # PATCH/PUT /purchases/1.json
   def update
-    respond_to do |format|
-      if @purchase.update(purchase_params)
-        format.html { redirect_to @invoice, notice: 'Purchase was successfully updated.' }
-        format.json { render :show, status: :ok, location: @purchase }
-      else
-        format.html { render :edit }
-        format.json { render json: @purchase.errors, status: :unprocessable_entity }
-      end
-    end
+    @invoice = Invoice.find(params[:invoice_id])
+    @purchase = Purchase.find(params[:id])
+    title = @purchase.name
+
+        if @purchase.update_attributes(purchase_params)
+          flash[:notice] = "#{title} was updated successfully."
+          redirect_to @invoice
+
+        else
+          flash[:error] = "Error could not update purchase."
+          redirect_to :show
+
+        end
   end
 
   # DELETE /purchases/1
@@ -63,7 +67,7 @@ class Invoices::PurchasesController < ApplicationController
     title = @purchase.name
 
         if @purchase.destroy
-          flash[:notice] = "#{title} was delete successfully."
+          flash[:notice] = "#{title} was deleted successfully."
           redirect_to @invoice
 
         else
