@@ -21,6 +21,7 @@ class Invoices::PurchasesController < ApplicationController
 
   # GET /purchases/1/edit
   def edit
+     
   end
 
   # POST /purchases
@@ -44,19 +45,14 @@ class Invoices::PurchasesController < ApplicationController
   # PATCH/PUT /purchases/1
   # PATCH/PUT /purchases/1.json
   def update
-    @invoice = Invoice.find(params[:invoice_id])
-    @purchase = Purchase.find(params[:id])
-    title = @purchase.name
-
-        if @purchase.update_attributes(purchase_params)
-          flash[:notice] = "#{title} was updated successfully."
-          redirect_to @invoice
-
-        else
-          flash[:error] = "Error could not update purchase."
-          redirect_to :show
-
-        end
+    respond_to do |format|
+      if @purchase.update(purchase_params)
+        format.html { redirect_to @purchase, notice: 'Purchase was successfully updated.'}
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @purchase.errors, status: :unprocessable_entity}
+    end
   end
 
   # DELETE /purchases/1

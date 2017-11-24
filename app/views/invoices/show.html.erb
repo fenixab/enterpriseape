@@ -31,6 +31,7 @@
 					<th>Price</th>
 					<th>Total</th>
 					<th>Delete</th>
+					
 				</tr>
 			</thead>
 
@@ -45,6 +46,7 @@
 						<td><h4><%= number_to_currency(purchase.quantity * purchase.price, :locale => :pt) %> </h4></td>
 						<td><h4><%= link_to "Delete", [@invoice, purchase], method: :delete, data: { confirm: 'Delete this purchase?' } %> </h4></td>
 						<% running_total = running_total + (purchase.quantity * purchase.price) %>
+
 					</tr>
 				<% end %>
 			</tbody>
